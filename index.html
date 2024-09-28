@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" /> <!-- Character encoding for the document -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Compatibility with IE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive design -->
+  <title>Todo App</title> <!-- Title of the webpage -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Link to the CSS stylesheet -->
+</head>
+
+<body>
+  <main>
+    <h1>Task Manager</h1> <!-- Main heading of the app -->
+    <div class="todo-app"> <!-- Container for the todo application -->
+      <button id="open-task-form-btn" class="btn large-btn">
+        Add New Task <!-- Button to open the task form -->
+      </button>
+      
+      <form class="task-form hidden" id="task-form"> <!-- Task form that is hidden by default -->
+        <div class="task-form-header">
+          <button id="close-task-form-btn" class="close-task-form-btn" type="button" aria-label="close">
+            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+              <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" />
+              <path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" />
+            </svg>
+          </button>
+        </div>
+        <div class="task-form-body">
+          <label class="task-form-label" for="title-input">Title</label>
+          <input required type="text" class="form-control" id="title-input" value="" /> <!-- Title input -->
+          
+          <label class="task-form-label" for="date-input">Date</label>
+          <input type="date" class="form-control" id="date-input" value="" /> <!-- Date input -->
+          
+          <label class="task-form-label" for="description-input">Description</label>
+          <textarea class="form-control" id="description-input" cols="30" rows="5"></textarea> <!-- Description textarea -->
+        </div>
+        <div class="task-form-footer">
+          <button id="add-or-update-task-btn" class="btn large-btn" type="submit">
+            Add Task <!-- Button to add or update task -->
+          </button>
+        </div>
+      </form>
+      
+      <dialog id="confirm-close-dialog"> <!-- Dialog for confirming discard -->
+        <form method="dialog">
+          <p class="discard-message-text">Discard unsaved changes?</p> <!-- Confirmation message -->
+          <div class="confirm-close-dialog-btn-container">
+            <button id="cancel-btn" class="btn">
+              Cancel <!-- Button to cancel discard -->
+            </button>
+            <button id="discard-btn" class="btn">
+              Discard <!-- Button to confirm discard -->
+            </button>
+          </div>
+        </form>
+      </dialog>
+      
+      <div id="tasks-container"></div> <!-- Container for displaying tasks -->
+    </div>
+  </main>
+  
+  <script src="script.js"></script> <!-- Link to the JavaScript file -->
+</body>
+
+</html>

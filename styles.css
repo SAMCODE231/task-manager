@@ -1,0 +1,246 @@
+:root {
+  /* Define color variables for consistent theming */
+  --white: #fafafa;
+  --light-grey: #eaeef2;
+  --mid-grey: #2b2b52;
+  --deep-teal: #134074; /* New background color */
+  --rust-orange: #ff6700; /* New form border color */
+  --yellow: #f5c542;
+  --golden-yellow: #fbb632;
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+  --shadow-light: rgba(255, 255, 255, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  box-sizing: inherit; /* Inherit box-sizing from html */
+}
+
+html {
+  font-size: 100%; /* Base font size */
+  font-family: 'Roboto', sans-serif; /* Set the font family */
+}
+
+body {
+  box-sizing: border-box; /* Set box-sizing to border-box */
+  background-color: var(--deep-teal); /* New background color */
+  line-height: 1.5; /* Set line height */
+  min-height: 100vh; /* Ensure the body takes at least full viewport height */
+  display: flex; /* Flexbox for layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+main {
+  display: flex; /* Use flexbox for main content */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  animation: fadeIn 0.8s ease-in-out; /* Animation on load */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start transparent */
+  }
+  to {
+    opacity: 1; /* End fully visible */
+  }
+}
+
+h1 {
+  color: var(--light-grey); /* Header color */
+  margin: 25px 0 45px 0; /* Vertical spacing */
+  letter-spacing: 2px; /* Space out letters */
+  text-transform: uppercase; /* Uppercase text */
+  text-shadow: 2px 2px var(--shadow-dark); /* Shadow effect for text */
+}
+
+.todo-app {
+  background: linear-gradient(135deg, var(--white), var(--light-grey)); /* Gradient background */
+  width: 320px; /* Fixed width */
+  height: 370px; /* Fixed height */
+  border: 4px solid var(--rust-orange); /* New form border color */
+  border-radius: 12px; /* Rounded corners */
+  padding: 20px; /* Internal spacing */
+  position: relative; /* For positioning child elements */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  gap: 12px; /* Space between child elements */
+  box-shadow: 0px 6px 12px var(--shadow-dark), inset 0px 1px 5px var(--shadow-light); /* Shadow effects */
+}
+
+.btn {
+  cursor: pointer; /* Change cursor on hover */
+  width: 120px; /* Fixed button width */
+  margin: 12px; /* Margin around buttons */
+  padding: 8px; /* Internal button spacing */
+  font-weight: bold; /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Space out letters */
+  color: var(--dark-grey); /* Text color */
+  background-color: var(--golden-yellow); /* Background color */
+  background-image: linear-gradient(135deg, #ffdb4c, #ffad33); /* Gradient background */
+  border: 2px solid var(--golden-yellow); /* Button border */
+  border-radius: 6px; /* Rounded corners */
+  transition: background 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+
+.btn:hover {
+  background-image: linear-gradient(135deg, #ffe04c, #f88f08); /* Change gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.large-btn {
+  width: 85%; /* Full width */
+  font-size: 1.3rem; /* Larger text */
+  align-self: center; /* Center the button */
+}
+
+.close-task-form-btn {
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.close-icon {
+  width: 24px; /* Icon width */
+  height: 24px; /* Icon height */
+  filter: drop-shadow(1px 1px var(--shadow-dark)); /* Shadow effect for icon */
+}
+
+.task-form {
+  display: flex; /* Use flexbox for layout */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Centering transform */
+  background-color: var(--white); /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Internal spacing */
+  width: 320px; /* Fixed width */
+  height: 370px; /* Fixed height */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space out children */
+  box-shadow: 0px 8px 15px var(--shadow-dark); /* Shadow effect */
+  animation: slideDown 0.5s ease-out; /* Slide down animation */
+}
+
+/* Keyframes for slide-down effect */
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -60%); /* Start slightly above center */
+  }
+  to {
+    transform: translate(-50%, -50%); /* End at center */
+  }
+}
+
+.task-form-header {
+  display: flex; /* Flexbox for header */
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.task-form-body {
+  display: flex; /* Flexbox for body */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space out items */
+}
+
+.task-form-footer {
+  display: flex; /* Flexbox for footer */
+  justify-content: center; /* Center items */
+}
+
+.task-form-label,
+#title-input,
+#date-input,
+#description-input {
+  display: block; /* Display as block for full width */
+}
+
+.task-form-label {
+  margin-bottom: 8px; /* Space below label */
+  font-size: 1.4rem; /* Font size for labels */
+  font-weight: 600; /* Bold text */
+  color: var(--mid-grey); /* Label color */
+  letter-spacing: 1px; /* Space out letters */
+}
+
+#title-input,
+#date-input,
+#description-input {
+  width: 100%; /* Full width inputs */
+  margin-bottom: 12px; /* Space below inputs */
+  padding: 6px; /* Internal input spacing */
+  font-size: 1rem; /* Font size for inputs */
+  border: 1px solid var(--light-grey); /* Border color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+#confirm-close-dialog {
+  padding: 12px; /* Internal spacing */
+  margin: 15px auto; /* Center horizontally with margin */
+  background-color: var(--light-grey); /* Background color */
+  border-radius: 18px; /* Rounded corners */
+  box-shadow: 0px 4px 10px var(--shadow-dark); /* Shadow effect */
+}
+
+.confirm-close-dialog-btn-container {
+  display: flex; /* Flexbox for button container */
+  justify-content: space-between; /* Space out buttons */
+  margin-top: 15px; /* Margin above buttons */
+}
+
+.discard-message-text {
+  font-weight: bold; /* Bold text */
+  font-size: 1.6rem; /* Font size for discard message */
+  text-align: center; /* Center text */
+  color: var(--dark-grey); /* Text color */
+}
+
+#tasks-container {
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Scrollable content */
+}
+
+.task {
+  background-color: var(--light-grey); /* Task background color */
+  padding: 8px; /* Internal task spacing */
+  border-radius: 6px; /* Rounded corners */
+  margin: 6px 0; /* Vertical margin between tasks */
+  box-shadow: 0px 2px 6px var(--shadow-dark); /* Shadow effect */
+}
+
+.hidden {
+  display: none; /* Hide element */
+}
+
+/* Responsive styles for larger screens */
+@media (min-width: 576px) {
+  .todo-app,
+  .task-form {
+    width: 420px; /* Wider app and form */
+    height: 470px; /* Taller app and form */
+  }
+
+  .task-form-label {
+    font-size: 1.6rem; /* Larger label text */
+  }
+
+  #title-input,
+  #date-input {
+    height: 2.4rem; /* Taller input fields */
+  }
+
+  #title-input,
+  #date-input,
+  #description-input {
+    padding: 7px; /* Increased padding */
+    margin-bottom: 25px; /* Increased margin */
+  }
+}
